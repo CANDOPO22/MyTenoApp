@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>MyTenoApp</title>
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-place"><img src="assets/logo.svg" alt="MytenoApp"></div>
+        <div class="search-place">
+            <input type="text" id="id-busqueda" placeholder="Encuentra todo lo que necesitas...">
+            <button class="btn-search btn-main"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="options-place">
+            <div class="item-option" title="Registrate"><i class="far fa-user-circle"></i></div>
+            <div class="item-option" title="Iniciar Sesion"><i class="fas fa-sign-in-alt"></i></div>
+            <div class="item-option" title="Mis compras"><i class="fas fa-shopping-cart"></i></div>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="content-page">
+            <div class="title-section">Productos destacados</div>
+                <div class="products-list">
+                    <div class="product-box">
+                        <a href="">
+                            <div class="product">
+                                <img src="assets/products/alexa.jpg" alt="Alexa Echo">
+                                <div class="detail-title">Amazon Echo Dot 3rd Gen con asistente virtual Alexa</div>
+                                <div class="detail-description">Bocina Inteligente Alexa</div>
+                                <div class="detail-precio">$ 899.<span>99</span> MNX </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-box">
+                        <a href="">
+                            <div class="product">
+                                <img src="assets/products/alexa2.jpg" alt="Alexa Echo">
+                                <div class="detail-title">Amazon Echo Dot 4th Gen con asistente virtual Alexa </div>
+                                <div class="detail-description">Bocina Inteligente Alexa</div>
+                                <div class="detail-precio">$ 1299.<span>99</span> MNX </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-box">
+                        <a href="">
+                            <div class="product">
+                                <img src="assets/products/tiraled.jpg" alt="Alexa Echo">
+                                <div class="detail-title">Tira led 5050 RGB</div>
+                                <div class="detail-description">Tiras led RGB 5m controlada por App</div>
+                                <div class="detail-precio">$ 250.<span>00</span> MNX </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+            $(document).ready(function(){
+            $.ajax({
+                url:'servicios/producto/get_all_products.php',
+                type:'POST',
+                data:{},
+                success:function(data){
+                    console.log(data);
+                    for (var i = 0; i < data.datos.length; i ++){
+                        data.datos[i]
+                    }
+                },
+                error:function(err){
+                    console.error(err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
